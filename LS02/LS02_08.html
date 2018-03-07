@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript">
+        window.addEventListener('load', eventWindowLoaded, false);
+        function eventWindowLoaded() {
+            canvasApp();
+        }
+        
+        function canvasApp() {
+            var theCanvas = document.getElementById('canvas');
+            var context = theCanvas.getContext('2d');
+            // drawRect(context);
+            // drawEllipse(context);
+            drawTriangle(context);
+        }
+        CanvasRenderingContext2D.prototype.triangle=function(x1,y1,x2,y2,x3,y3,x4,y4,x5,y5){
+            this.moveTo(x1,y1);
+            this.lineTo(x2,y2);
+            this.lineTo(x3,y3);
+            this.lineTo(x4,y4);
+            this.lineTo(x5,y5);
+            this.closePath();
+            this.stroke();
+        }
+        function drawTriangle(ctx){
+            ctx.triangle(10,20,100,20,100,200,150,150,200,200);
+        }
+    </script>
+</head>
+<body>
+<div>
+    <canvas id="canvas" width="500" height="500" style="border:solid #ccc 2px">
+        Your browser does not support the HTML 5 Canvas.
+    </canvas>
+</div>
+</body>
+</html>
