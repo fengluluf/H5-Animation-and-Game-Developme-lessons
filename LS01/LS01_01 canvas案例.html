@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>canvas 案例</title>
+        <meta charset="UTF-8">
+        <script type="text/javascript">
+            window.onload=function(){
+                canvasApp();
+            }
+            function canvasApp(){
+                var theCanvas = document.getElementById("canvas");
+                var context = theCanvas.getContext('2d');
+                //fillStyle属性需要与fill()方法配合使用
+                context.fillStyle = "blue";
+                context.lineWidth = 10;
+                context.strokeStyle = "red";
+                //beginPath()开始一条新的路径（路径开始点）
+                context.beginPath();
+                context.moveTo(50, 50);
+                context.lineTo(250,50);
+                context.lineTo(50,250);
+                //context.lineTo(50,50);
+                context.closePath();
+                context.fill();
+                context.stroke();
+                
+                
+            }
+        </script>
+    </head>
+    <body>
+        <canvas id="canvas" width="500" height="500" style="border:1px solid #000"></canvas>
+    </body>
+</html>
