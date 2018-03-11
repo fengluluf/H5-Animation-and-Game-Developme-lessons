@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas画布宽高属性、样式宽高及拉伸效果 </title>
+    <script type="text/javascript">
+        window.onload = function () {
+            canvasApp();
+        }
+        function canvasApp() {
+            var theCanvas = document.getElementById('canvas');
+            var context = theCanvas.getContext('2d');
+            console.log(context.canvas.width);
+            //context.fillStyle = "#11ffaa";
+            context.fillRect(0, 0, 100, 100);
+
+            context.strokeStyle = "#000000";
+            context.lineWidth = 2;
+            context.strokeRect(0, 0, context.canvas.width, context.canvas.height);
+        }
+</script>
+</head>
+<body>
+    <canvas id="canvas" style="border:1px #000 solid;width:300px;height:300px" width="500" height="500"></canvas>
+</body>

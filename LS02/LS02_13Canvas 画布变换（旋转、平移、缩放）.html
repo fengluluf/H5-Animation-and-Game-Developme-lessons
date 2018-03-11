@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas描边与填充（纯色、渐变色）</title>
+    <script type="text/javascript">
+        window.addEventListener('load', eventWindowLoaded, false);
+        function eventWindowLoaded() {
+            canvasApp();
+        }
+        
+        function canvasApp() {
+            var theCanvas = document.getElementById('canvas');
+            var context = theCanvas.getContext('2d');
+            context.save();
+            //平移
+            context.fillStyle = "lightblue";
+            context.translate(100, 50);
+            context.rotate(0.25*Math.PI);
+            context.scale(0.5,1);
+            context.fillRect(0, 0, 70, 50);
+            context.restore();
+
+            context.save();
+            
+        }
+        
+    </script>
+</head>
+<body>
+<!--<div style="position: absolute; top: 50px; left: 50px;">-->
+<div>
+    <canvas id="canvas" width="500" height="500" style="border:2px #ccc solid">
+        Your browser does not support the HTML 5 Canvas.
+    </canvas>
+</div>
+</body>
+</html>

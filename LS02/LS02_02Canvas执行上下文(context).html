@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas 执行上下文（context） </title>
+    <script type="text/javascript">
+        window.addEventListener('load', eventWindowLoaded, false);
+        function eventWindowLoaded() {
+            canvasApp();
+        }
+        function canvasApp() {
+            var theCanvas = document.getElementById('canvas');
+            var context = theCanvas.getContext('2d');
+
+            console.log("构造函数：" + context.constructor);
+            console.log(context instanceof CanvasRenderingContext2D);
+            console.log(CanvasRenderingContext2D.prototype == context.__proto__);
+        
+            context.lineWidth=1;
+            context.strokeStyle='red';
+            context.moveTo(0, 0);
+            context.lineTo(300, 300);
+            context.stroke();
+            
+            
+            //重新开始新的起点，否则将沿用上面的样式
+            context.beginPath();
+            context.lineWidth = 5;
+            context.strokeStyle = "blue";
+            context.moveTo(0, 100);
+            context.lineTo(100, 200);
+            context.stroke();
+            
+        }
+        //注意：当前路径和当前位图受Canvas环境控制，不属于保存的状态
+    </script>
+</head>
+
+<body>
+    <canvas id = "canvas" width="500" height="500" style="border:1px solid #000"></canvas>
+</body>
+
+</html>

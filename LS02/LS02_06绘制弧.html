@@ -16,17 +16,16 @@
             var context = theCanvas.getContext('2d');
             context.lineWidth = 5;
 
-            context.save();//注意：Canvas只能有一个“当前”路径，当调用context.save()方法时，不会将它存储为当前绘图状态的一部分
+            context.save();
             context.beginPath();
             context.arc(100, 100, 50, Math.PI, 1.5*Math.PI,false);
             context.stroke();
             context.restore();
-            context.save();//注意：Canvas只能有一个“当前”路径，当调用context.save()方法时，不会将它存储为当前绘图状态的一部分
+            context.save();
             
-            context.strokeStyle = 'blue';//设置描边颜色
-            context.beginPath();//虽然调用了context.save()，但不会将当前路径存储为状态的一部分，所以若不beginPath描边依然覆盖
-            context.arc(100, 100, 50, 0.5*Math.PI,0 ,true);           
-            // context.arc(100, 100, 50, 0, Math.PI / 2, true);
+            context.strokeStyle = 'blue';
+            context.beginPath();
+            context.arc(100, 100, 50, 0.5*Math.PI,0 ,true);
             context.stroke();
            
             context.closePath();

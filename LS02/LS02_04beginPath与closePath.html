@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>canvas 案例</title>
+        <meta charset="UTF-8">
+        <script type="text/javascript">
+            window.onload=function(){
+                canvasApp();
+            }
+            function canvasApp(){
+                var theCanvas = document.getElementById("canvas");
+                var context = theCanvas.getContext('2d');
+
+                context.strokeStyle = 'yellow';
+                context.lineWidth = 5;
+                context.moveTo(10,10);
+                context.lineTo(200,10);
+                context.lineTo(200,120);
+                //beginPath()开始新的起点,只要不beginPath，都是在画一条路径
+                //closePath()创建从当前点到开始点的路线
+                context.closePath();
+                context.stroke();
+
+                context.beginPath(); //有beginPath和没有的区别
+                context.strokeStyle = 'red';
+                context.lineWidth = 10;
+                context.moveTo(10,200);//
+                context.lineTo(200,200);
+                context.lineTo(200,300);
+                context.closePath();
+                context.stroke();
+            }
+        </script>
+    </head>
+    <body>
+        <canvas id="canvas" width="500" height="500" style="border:1px solid #000"></canvas>
+    </body>
+</html>

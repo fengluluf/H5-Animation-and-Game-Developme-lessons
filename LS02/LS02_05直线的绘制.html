@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>直线的绘制</title>
+        <meta charset="UTF-8">
+        <script type="text/javascript">
+            window.onload=function(){
+                canvasApp();
+            }
+            function canvasApp(){
+                var theCanvas = document.getElementById("canvas");
+                var context = theCanvas.getContext('2d');
+
+                context.beginPath();
+                context.lineWidth=10;
+                context.lineCap='round';
+                context.lineJoin='bevel';
+                
+                context.fillStyle='#000';
+                context.strokeStyle='red';
+                context.moveTo(10,10);
+                context.lineTo(200,10);
+                context.lineTo(200,120);
+                context.closePath();
+                context.stroke();
+                
+            }
+        </script>
+    </head>
+    <body>
+        <canvas id="canvas" width="500" height="500" style="border:1px solid #000"></canvas>
+    </body>
+</html>
