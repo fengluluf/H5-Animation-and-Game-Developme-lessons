@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas 绘制图像</title>
+    <script type="text/javascript">
+        window.onload = function () {
+            canvasAppOne();
+            canvasAppTwo();//以canvasOne为内容绘制在canvasTwo中
+        }
+        function canvasAppOne(){
+            var theCanvas=document.getElementById('canvasOne');
+            var context=theCanvas.getContext('2d');
+            var sourceImg = new Image();
+            sourceImg.src = './images/ship.png';
+            sourceImg.onload = function eventShipLoaded() {
+                context.drawImage(sourceImg, 50, 50);
+                drawBorder(context,0, 0, 32, 32,"red");
+
+                context.drawImage(sourceImg, 0, 50, 100, 100);
+                drawBorder(context,0, 50, 100, 100,"red");
+            }
+        }
+        // function canvasAppTwo(){
+        //     document.getElementById('canvasTwo').onclick=function(){
+        //         var theCanvas = document.getElementById('canvasTwo');
+        //         var context = theCanvas.getContext('2d');
+        //         var canvasOne = document.getElementById('canvasOne');
+                
+        //         context.drawImage(canvasOne, 50, 50, 100, 100, 50, 50, 100, 100);
+        //     }
+        // }
+        function drawBorder(ctx,x, y, w, h,color) {
+            ctx.save();
+            ctx.strokeStyle = color;
+            ctx.lineWidth = 2;
+            ctx.strokeRect(x, y, w, h);
+            ctx.restore();
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <canvas id="canvasOne" width="500" height="500" style="border:solid 1px"></canvas>
+        <canvas id="canvasTwo" width="200" height="200" style="border:solid 1px">
+            Your browser does not support the HTML 5 Canvas.
+        </canvas>
+    </div>
+</body>
+
+</html>
